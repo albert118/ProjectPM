@@ -1,7 +1,7 @@
 # webapp_ProjectPM
 
 A Django project for Project PM's website & online-beta application development. This is the precursor to the iOS & Android app projects (TODO: Add github links).
-Website runs a MySQL database backend for website data as well as user data storage purposes. 
+An Apache webserver manages the site, file hosting as well as MySQL database.
 
 Software versions:
 Python 3.6.8
