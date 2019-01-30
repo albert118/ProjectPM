@@ -10,7 +10,7 @@ from .base import *
 import logging.config
 
 # For security and performance reasons, DEBUG is turned off
-DEBUG = False
+DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = False
 
 # Strict password authentication and validation

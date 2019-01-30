@@ -14,15 +14,31 @@ See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 """
 from django.urls import reverse_lazy
 from pathlib import Path
- 
+import environ
+
+################################################################################
+# Use Twelve-Factor system. Read more: https://12factor.net/
+# Allows all credentials to be read from environment variables. Increasing stability
+# and security.
+################################################################################
+
+env = environ.Env()
+
+env_file = Path(__file__).resolve().parent / "local.env"
+if env_file.exists():
+    environ.Env.read_env(str(env_file))
+
 ################################################################################
 # Uses pathlib for concrete path instantiation. Read more:
 # https://docs.python.org/3/library/pathlib.html?highlight=pathlib%20path#module-pathlib
 # Build paths inside the project like this: BASE_DIR / "directory"
 # BASE_DIR is set to Devise, by default this is 'myproject'.
+# UPDATE: uses environ.Path functionality to read BASE_DIR
 ################################################################################
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = environ.Path(__file__) - 3 # three folder back (/a/b/c/ - 3 = /)
+SITE_ROOT = BASE_DIR
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
@@ -37,10 +53,18 @@ STATICFILES_DIRS = [
     # insert more static file directories here
 ]
 
-MEDIA_ROOT = str(BASE_DIR / "media")
-
-MEDIA_URL = "/media/"
 STATIC_URL = "/static/"
+MEDIA_ROOT = str(BASE_DIR / "media")
+MEDIA_URL = "/media/"
+PUBLIC_ROOT = root.path('public/')
+
+# Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env("SECRET_KEY")
+
+CACHES = {
+    'default': env.cache(),
+    'redis': env.cache('REDIS_URL', default='Redis: rediscache://')
+}
 
 ################################################################################
 # Use Django templates using the new Django 1.8 TEMPLATES settings
@@ -77,25 +101,6 @@ TEMPLATES = [
     }
 ]
 
-################################################################################
-# Use Twelve-Factor inspired environment variables, or add your own file.
-# Read more: https://12factor.net/
-# First, create a local.env file in the settings directory (ideally not in repo
-# for public perusal). Second, read the secret-ley from this/the file/env_var.
-################################################################################
-
-import environ
-
-env = environ.Env()
-
-env_file = Path(__file__).resolve().parent / "local.env"
-if env_file.exists():
-    environ.Env.read_env(str(env_file))
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env("SECRET_KEY")
-
 # Application definition
 INSTALLED_APPS = (
     "django.contrib.auth",
@@ -125,36 +130,23 @@ ROOT_URLCONF = "Devise.urls"
 
 WSGI_APPLICATION = "Devise.wsgi.application"
 
-
 ################################################################################
 # # Database configuration settings
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-# Sets the default database to MySQL with USER as  
-# (with password 'xxxx') & NAME . Make sure to create
-# this user in MySQL before attempting to make migrations! Add the username and 
-# password in the appropriate fields. 
-
-# if your MySQL is configure with a custom port, ufw will throw an error.
-# Raises ImproperlyConfigured exception if NAME isn't set to database name!
+# Gets NAME, USER & PASSWORD from env var's. Make sure to create
+# a user in MySQL before attempting to make migrations! Add the username and 
+# password in the appropriate fields within the local.env file. 
 ################################################################################
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': 'xxxx',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'OPTIONS': {
-            'isolation_level':'read committed',
-            },
-        }
-}
+	# read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
+    'default': env.db(),
+    # read os.environ['MYSQL_URL']
+    'extra': env.db('MYSQL_URL', default='MySQL: mysql://')
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
