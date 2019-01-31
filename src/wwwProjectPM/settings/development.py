@@ -4,11 +4,12 @@ https://github.com/arocks/edge/blob/master/src/project_name/settings/development
 
 This is the default settings extension. If not,
 reset the environment variable like this:
-DJANGO_SETTINGS_MODULE=Devise.settings.development
+DJANGO_SETTINGS_MODULE=wwwProjectPM.settings.development
 """
 
 from .base import *
 import sys
+import os
 import logging.config
 
 # SECURITY WARNING: don't run with debug turned on in production!

@@ -3,7 +3,7 @@ Production settings extension (with some alterations), see original at:
 https://github.com/arocks/edge/blob/master/src/project_name/settings/development.py
 
 In production set the environment variable like this:
-DJANGO_SETTINGS_MODULE=Devise.settings.production
+DJANGO_SETTINGS_MODULE=wwwProjectPM.settings.production
 """ 
 #    
 from .base import *
@@ -32,7 +32,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Must mention ALLOWED_HOSTS in production!
-# ALLOWED_HOSTS = ["Devise.com"]
+ALLOWED_HOSTS = ["wwwProjectPM.com"]
 
 # Cache the templates in memory to improve performance
 loaders = [
