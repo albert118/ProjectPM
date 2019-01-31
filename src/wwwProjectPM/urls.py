@@ -6,8 +6,8 @@ from django.urls import include, path
 from . import views
 
 # Personalized admin site settings like title and header
-admin.site.site_title = "Devise Site Admin"
-admin.site.site_header = "Devise Administration"
+admin.site.site_title = "Wwwprojectpm Site Admin"
+admin.site.site_header = "Wwwprojectpm Administration"
 
 urlpatterns = [
     path("", views.HomePage.as_view(), name="home"),
