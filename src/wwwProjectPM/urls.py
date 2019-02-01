@@ -11,7 +11,7 @@ from . import views
 
 # Personalized admin site settings like title and header
 admin.site.site_title = "wwwprojectpm Site Admin"
-admin.site.site_header = "Wwwprojectpm Administration"
+admin.site.site_header = "wwwprojectpm Administration"
 
 urlpatterns = [
     path("", views.HomePage.as_view(), name="home"),
@@ -24,7 +24,6 @@ urlpatterns = [
     
 # User-uploaded files like profile pics need to be served in development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 # Include django debug toolbar if DEBUG is on
 if settings.DEBUG:
     import debug_toolbar
