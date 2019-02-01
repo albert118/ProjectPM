@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     "crispy_forms",
     "profiles",
     "accounts",
+    "BetterResume",
     # add more apps here
 )
 
