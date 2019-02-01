@@ -55,18 +55,19 @@
                 {% if user.is_staff %}
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>
                 {% endif %}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle profile-menu" data-toggle="dropdown">
-			<img src="{% thumbnail user.profile.picture|default:'default_profile.png' 30x30 crop %}" alt="" />
-			{{ user.get_full_name|truncatechars:20 }}
-			<span class="caret"></span>
-		    </a>
-		    
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="{% url 'profiles:show_self' %}">Profile</a></li>
-                    <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
-                  </ul>
-                </li>
+            <div class="dropdown">
+              <div>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="{% thumbnail user.profile.picture|default:'default_profile.png' 30x30 crop %}" alt="" />
+                {{ user.get_full_name|truncatechars:20 }}
+                <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{% url 'profiles:show_self' %}">Profile</a></li>
+                  <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                </ul>
+              </div>
+            </div>
               {% endif %}
             {% endblock %}
           </ul>
@@ -103,15 +104,17 @@
     <!-- Site footer -->
     {% block footer %}
       <!-- Some social button for contact will do -->
+      <!-- Add social contact links for the page.-->
       <a id="contact"></a>
       <div class="container">
             <div class="footer">
         <div class="row">
           <div class="col-lg-6">
-              <p>&copy; Company {% now 'Y' %}</p>
+              <p>&copy; Devise Solutions Ltd. {% now 'Y' %}</p>
           </div>
           <div class="col-lg-6 text-right">
             Connect with us on
+            <!-- Logos are retrieved from the bootstrap source. -->
             <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
             <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
           </div>

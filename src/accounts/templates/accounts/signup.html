@@ -1,18 +1,19 @@
-{% templatetag openblock %} extends "accounts/auth_base.html" {% templatetag closeblock %}
+{% extends "accounts/auth_base.html" %}
 
-{% templatetag openblock %} load crispy_forms_tags {% templatetag closeblock %}
+{% load crispy_forms_tags %}
 
-{% templatetag openblock %} block title {% templatetag closeblock %}{% templatetag openvariable %} block.super {% templatetag closevariable %}Sign Up{% templatetag openblock %} endblock {% templatetag closeblock %}
+{% block title %}{{ block.super }}Sign Up{% endblock %}
 
-{% templatetag openblock %} block form_heading {% templatetag closeblock %}Signing Up is Free{% templatetag openblock %} endblock {% templatetag closeblock %}
+{% block form_heading %} 
+	Sign Up
+{% endblock %}
 
-{% templatetag openblock %} block form {% templatetag closeblock %}
-  {% templatetag openblock %} crispy form {% templatetag closeblock %}
-
+{% block form %}
+  {% crispy form %}
   <div class="form-message">
     <p>
-      Already signed up? <a href="{% templatetag openblock %} url 'accounts:login' {% templatetag closeblock %}">Log in</a>.
+      Already signed up? <a href="{% url 'accounts:login' %}">Log in</a>.
     </p>
   </div>
-{% templatetag openblock %} endblock form {% templatetag closeblock %}
+{% endblock form %}
 

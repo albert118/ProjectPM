@@ -1,18 +1,21 @@
-{% templatetag openblock %} extends "base.html" {% templatetag closeblock %}
+{% extends "base.html" %}
 
-{% templatetag openblock %} load crispy_forms_tags {% templatetag closeblock %}
+{% load crispy_forms_tags %}
 
-{% templatetag openblock %} block navbar {% templatetag closeblock %}
-{% templatetag openblock %} endblock {% templatetag closeblock %}
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="home" %}
+{% endblock %}
 
-{% templatetag openblock %} block container {% templatetag closeblock %}
+{%  block container %}
 <div class="container form-box">
   <div class="text-center">
-    <h2>{% templatetag openblock %} block form_heading {% templatetag closeblock %}{% templatetag openblock %} endblock {% templatetag closeblock %}</h2>
+    <h2>
+    	{% block form_heading %}
+    	{% endblock %}
+    </h2>
   </div>
-  {% templatetag openblock %} block form {% templatetag closeblock %}
-  {% templatetag openblock %} endblock {% templatetag closeblock %}
+  {% block form %}
+  {% endblock %}
 </div>
-
-{% templatetag openblock %} endblock container {% templatetag closeblock %}
+{% endblock container %}
 

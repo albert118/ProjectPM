@@ -67,8 +67,9 @@ body>.navbar-transparent {
 
 /* Home page styling */
 .corporate-jumbo {
+    /* home page background image at top of page */
     background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)),
-      url("/static/site/img/banner.jpg");
+    url("/static/site/img/FOM test logo.png");
     background-repeat: no-repeat;
     background-position: 80% center;
     background-attachment: fixed;
@@ -113,6 +114,42 @@ body>.navbar-transparent {
 .footer a:hover {
     text-decoration: none;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/*Change the colour of links on hover */
+.dropdown-menu a:hover { background-color: #ddd }
+/* Show the drop down menu on hover */
+.dropdown:hover .dropdown-menu {display: block;}
+/*change the background colour of the dropdown button when the 
+dropdown content is shown*/
+.dropdown:hover .dropdown-toggle {background-color: #eaeaea;}
 
 /* About page styling */
 #sec1 {
