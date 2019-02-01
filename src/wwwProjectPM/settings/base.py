@@ -110,6 +110,9 @@ INSTALLED_APPS = (
     "django.contrib.staticfiles",
     "easy_thumbnails",
     "authtools",
+    "crispy_forms",
+    "profiles",
+    "accounts",
     # add more apps here
 )
 
