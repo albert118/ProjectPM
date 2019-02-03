@@ -8,30 +8,28 @@ from . import models
 
 User = get_user_model()
 
-
 class UserForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_tag = False
-        self.helper.layout = Layout(Field("name"))
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_tag = False
+		self.helper.layout = Layout(Field("name"))
 
-    class Meta:
-        model = User
-        fields = ["name"]
-
+	class Meta:
+		model = User
+		fields = ["name"]
 
 class ProfileForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_tag = False
-        self.helper.layout = Layout(
-            Field("picture"),
-            Field("bio"),
-            Submit("update", "Update", css_class="btn-success"),
-        )
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_tag = False
+		self.helper.layout = Layout(
+			Field("picture"),
+			Field("bio"),
+			Submit("update", "Update", css_class="btn-success"),
+		)
 
-    class Meta:
-        model = models.Profile
-        fields = ["picture", "bio"]
+	class Meta:
+		model = models.Profile
+		fields = ["picture", "bio"]
