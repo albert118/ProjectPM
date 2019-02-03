@@ -16,6 +16,7 @@
 * Django 2.+
 * [mysqlclient](https://pypi.org/project/mysqlclient/) - for Django-MySQL integration
 * [virtualenv-win](https://pypi.org/project/virtualenvwrapper-win/) - Python version management for Windows development
+
 *versions known to work currently*: Python 3.6.8Python 3.6.8, Django 2.1.5, mysqlclient 1.3.14
 
 ### Further Reading:
