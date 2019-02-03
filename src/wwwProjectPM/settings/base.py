@@ -37,8 +37,8 @@ if env_file.exists():
 ################################################################################
 
 # BASE_DIR = Path(__file__).resolve().parent.parent.parent
-BASE_DIR = BASE_DIR = Path(__file__).resolve().parent.parent.parent
-SITE_ROOT = BASE_DIR
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+SITE_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
@@ -56,6 +56,7 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = str(SITE_ROOT / "media")
 MEDIA_URL = "/media/"
 PUBLIC_ROOT = str(SITE_ROOT / 'public')
+PUBLIC_URL = "/public/"
 
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
 SECRET_KEY = env("SECRET_KEY")
@@ -176,3 +177,22 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = "png"  # Default thumbnail extension.
+
+# Define the importable names for use in .development & .production.
+__all__ = [
+    "ALLOWED_HOSTS", 
+    "STATICFILES_DIRS",
+    "SITE_ROOT", 
+    "MEDIA_ROOT",
+    "PUBLIC_ROOT",
+    "MEDIA_URL",
+    "STATIC_URL",
+    "INSTALLED_APPS", 
+    "TEMPLATES", 
+    "ROOT_URLCONF",
+    "WSGI_APPLICATION",
+    "SECRET_KEY",
+    "MIDDLEWARE",
+    "BASE_DIR",
+    "AUTH_USER_MODEL",
+]

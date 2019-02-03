@@ -49,7 +49,7 @@ INTERNAL_IPS = ["127.0.0.1", "127.0.1.1"]
 
 # logs are above BASE_DIR for ease of access when their needed, 
 # to avoid cd'ing to the project dir
-LOGFILE_ROOT = BASE_DIR.parent / "logs"
+LOGFILE_ROOT = os.path.join(BASE_DIR.parent, "logs")
 
 # Reset logging
 # (see http://www.caktusgroup.com/blog/2015/01/27/Django-Logging-Configuration-logging_config-default-settings-logger/)
