@@ -18,6 +18,7 @@ Based on Django 1.8 project structure.
 * Django 2.+
 * [mysqlclient](https://pypi.org/project/mysqlclient/) - for Django-MySQL integration
 * [virtualenv-win](https://pypi.org/project/virtualenvwrapper-win/) - Python version management for Windows development
+
 *versions known to work currently*: Python 3.6.8, Django 2.1.5, mysqlclient 1.3.14
 
 ## Further Django Apps:
@@ -27,6 +28,7 @@ Based on Django 1.8 project structure.
 * django-environ 0.4.5
 * easy-thumbnails 2.5
 * pytz 2018.7
+
 
 ### Further Reading:
 [Python](https://www.python.org/)
