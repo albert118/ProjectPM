@@ -37,8 +37,8 @@ if env_file.exists():
 ################################################################################
 
 # BASE_DIR = Path(__file__).resolve().parent.parent.parent
-BASE_DIR = BASE_DIR = Path(__file__).resolve().parent.parent.parent
-SITE_ROOT = BASE_DIR
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+SITE_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
@@ -48,7 +48,7 @@ SITE_ROOT = BASE_DIR
 
 STATICFILES_DIRS =[str(BASE_DIR / "static"),
     # LAMP server static directory added by default.
-    "/var/www/static/",
+    str(SITE_ROOT / "static"),
     # insert more static file directories here
 ]
 
@@ -77,7 +77,7 @@ TEMPLATES = [
             str(BASE_DIR / "templates"),
             # LAMP server top-level templates for easy access
             # to base templates. Add this directory or remove this option.
-            '/var/www/templates/',
+            str(SITE_ROOT / "templates"),
             # insert more TEMPLATE_DIRS here
         ],
         # load template folder within app directories

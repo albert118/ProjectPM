@@ -32,7 +32,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Must mention ALLOWED_HOSTS in production!
-ALLOWED_HOSTS = ["wwwProjectPM.com"]
+ALLOWED_HOSTS += ["wwwProjectPM.com", 10.42.0.199]
 
 # Cache the templates in memory to improve performance
 loaders = [
