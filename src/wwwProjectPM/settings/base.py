@@ -146,9 +146,8 @@ DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
     'default': env.db(),
     # read os.environ['MYSQL_URL']
-    'extra': env.db('DATABASE_URL') # no default assigned. This will throw an error without
-    # the development/production database (these are one in the same).
-    }
+    'extra': env.db('DATABASE_URL')
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
@@ -195,4 +194,5 @@ __all__ = [
     "MIDDLEWARE",
     "BASE_DIR",
     "AUTH_USER_MODEL",
+    "DATABASES",
 ]
