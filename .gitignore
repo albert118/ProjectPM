@@ -58,6 +58,7 @@ docs/_build/
 celerybeat-schedule
 
 # Environments
+*.env
 .env
 .venv
 env/
@@ -71,3 +72,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+*.png
+*.env
