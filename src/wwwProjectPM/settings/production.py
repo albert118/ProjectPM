@@ -49,11 +49,11 @@ TEMPLATES[0]["OPTIONS"].update({"loaders": loaders})
 TEMPLATES[0].update({"APP_DIRS": False})
 
 # Define STATIC_ROOT for the collectstatic command
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(SITE_DIR, "static")
 
 # logs are above BASE_DIR for ease of access when their needed, 
 # to avoid cd'ing to the project dir
-LOGFILE_ROOT = os.path.dirname("logs")
+LOGFILE_ROOT = os.path.join(BASE_DIR, "logs")
 
 # Reset logging
 LOGGING_CONFIG = None
