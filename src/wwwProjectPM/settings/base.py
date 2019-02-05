@@ -146,7 +146,7 @@ WSGI_APPLICATION = "wwwProjectPM.wsgi.application"
 
 DATABASES = {
     'default': env.db(),
-    'extra': env.db('DATABASE_URL') 
+    'extra': env.db('DATABASE_URL')
     # no default assigned. This will throw an error if it
     # can't read/access the database!
 }
@@ -196,5 +196,6 @@ __all__ = [
     "MIDDLEWARE",
     "BASE_DIR",
     "AUTH_USER_MODEL",
+    "DATABASES",
 ]
 
