@@ -15,6 +15,7 @@ See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 from django.urls import reverse_lazy
 from pathlib import Path
 import environ
+import os
 
 ################################################################################
 # Use Twelve-Factor system. Read more: https://12factor.net/
@@ -37,8 +38,8 @@ if env_file.exists():
 ################################################################################
 
 # BASE_DIR = Path(__file__).resolve().parent.parent.parent
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-SITE_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+BASE_DIR = "/var/www/ProjectPM/src"
+SITE_ROOT = "/var/www/"
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
@@ -46,16 +47,17 @@ SITE_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 ################################################################################
 
-STATICFILES_DIRS =[str(BASE_DIR / "static"),
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
     # LAMP server static directory added by default.
-    str(SITE_ROOT / "static"),
     # insert more static file directories here
 ]
 
 STATIC_URL = "/static/"
-MEDIA_ROOT = str(SITE_ROOT / "media")
+STATIC_ROOT = os.path.join(SITE_ROOT, "static")
+MEDIA_ROOT = os.path.join(SITE_ROOT, "media")
 MEDIA_URL = "/media/"
-PUBLIC_ROOT = str(SITE_ROOT / 'public')
+PUBLIC_ROOT = os.path.join(SITE_ROOT, "public")
 PUBLIC_URL = "/public/"
 
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
@@ -75,10 +77,10 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            str(BASE_DIR / "templates"),
+            # str(BASE_DIR / "templates"),
             # LAMP server top-level templates for easy access
             # to base templates. Add this directory or remove this option.
-            str(SITE_ROOT / "templates"),
+            os.path.join(BASE_DIR, 'templates')
             # insert more TEMPLATE_DIRS here
         ],
         # load template folder within app directories
@@ -143,18 +145,17 @@ WSGI_APPLICATION = "wwwProjectPM.wsgi.application"
 ################################################################################
 
 DATABASES = {
-    # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
     'default': env.db(),
-    # read os.environ['MYSQL_URL']
-    'extra': env.db('DATABASE_URL') # no default assigned. This will throw an error without
-    # the development/production database (these are one in the same).
-    }
+    'extra': env.db('DATABASE_URL') 
+    # no default assigned. This will throw an error if it
+    # can't read/access the database!
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-au"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "AET"
 
 USE_I18N = True
 
@@ -169,7 +170,7 @@ USE_TZ = True
 # for the project.
 ################################################################################
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.42.0.199']
 
 # Authentication Settings
 AUTH_USER_MODEL = "authtools.User"
