@@ -10,11 +10,9 @@ from .models import Business
 
 User = get_user_model()
 
-
 class UserProfileInline(admin.StackedInline):
 	model = Profile
-
-
+	
 class NewUserAdmin(NamedUserAdmin):
 	inlines = [UserProfileInline]
 	list_display = (

@@ -12,9 +12,11 @@ from django.db import models
 from django.conf import settings
 
 class BaseProfile(models.Model):
+	# note: the relation must be to the base user defined here!
+	# not to the abstract model defined in usermodels.py, otherwise and E300, E307 error will arrise!!
 	user = models.OneToOneField(
 		settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True
-	)
+		)
 	slug = models.UUIDField(default=uuid.uuid4, blank=True, editable=False)
 	birth = models.DateField(null=True)
 	picture = models.ImageField(
@@ -28,6 +30,7 @@ class BaseProfile(models.Model):
 
 @python_2_unicode_compatible
 class Profile(BaseProfile):
+	""" This is the publicly accessible Profile model. Forms access this. """
 	def __str__(self):
 		return "{}'s profile".format(self.user)
 
@@ -47,11 +50,11 @@ class Business(models.Model):
 	bio = models.CharField("Short Bio", max_length=200, blank=True, null=True)
 	email = models.CharField(max_length=50, blank=True, null=True)
 
-	class Meta:
-		db_table = "bussinesses"
-
 	def __str__(self):
-		return "{}'s profile".format(self.name)
+		return "{}".format(self.name)
+
+	class Meta:
+		db_table = "businesses"
 
 class Address(models.Model):
 	"""Address model. """
@@ -62,8 +65,9 @@ class Address(models.Model):
 	street_number = models.IntegerField(blank=True, null=True)
 	unit_number = models.IntegerField(blank=True, null=True)
 	postcode = models.IntegerField(blank=True, null=True)
-	business = models.ForeignKey(Business, on_delete=models.CASCADE, related_name="Addresses")
+	business = models.ForeignKey(
+		Business, on_delete=models.CASCADE, related_name="Addresses"
+		)
 	
 	class Meta:
 		db_table = "addresses"
-		

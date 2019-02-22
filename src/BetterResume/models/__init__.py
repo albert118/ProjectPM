@@ -5,4 +5,4 @@
     
     Author: Albert Ferguson """
 
-from .profilemodel import Profile
+from .profilemodel import CV
