@@ -15,7 +15,6 @@ See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 from django.urls import reverse_lazy
 from pathlib import Path
 import environ
-import os
 
 ################################################################################
 # Use Twelve-Factor system. Read more: https://12factor.net/
@@ -38,8 +37,8 @@ if env_file.exists():
 ################################################################################
 
 # BASE_DIR = Path(__file__).resolve().parent.parent.parent
-BASE_DIR = "/var/www/ProjectPM/src"
-SITE_ROOT = "/var/www/"
+BASE_DIR = Path("C:/Users/alber/Documents/GitHub/ProjectPM/src/")
+SITE_ROOT = Path("/var/www/")
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
@@ -48,16 +47,16 @@ SITE_ROOT = "/var/www/"
 ################################################################################
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    Path(BASE_DIR, "static"),
     # LAMP server static directory added by default.
     # insert more static file directories here
 ]
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(SITE_ROOT, "static")
-MEDIA_ROOT = os.path.join(SITE_ROOT, "media")
+STATIC_ROOT = Path(SITE_ROOT, "static")
+MEDIA_ROOT = Path(SITE_ROOT, "media")
 MEDIA_URL = "/media/"
-PUBLIC_ROOT = os.path.join(SITE_ROOT, "public")
+PUBLIC_ROOT = Path(SITE_ROOT, "public")
 PUBLIC_URL = "/public/"
 
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
@@ -80,7 +79,7 @@ TEMPLATES = [
             # str(BASE_DIR / "templates"),
             # LAMP server top-level templates for easy access
             # to base templates. Add this directory or remove this option.
-            os.path.join(BASE_DIR, 'templates')
+            Path(BASE_DIR, 'templates')
             # insert more TEMPLATE_DIRS here
         ],
         # load template folder within app directories

@@ -9,7 +9,7 @@ DJANGO_SETTINGS_MODULE=wwwProjectPM.settings.development
 
 from .base import *
 import sys
-import os
+from pathlib import Path
 import logging.config
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -45,11 +45,11 @@ MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 THUMBNAIL_DEBUG = True
 
 # Allow internal IPs for debugging & convenience
-INTERNAL_IPS = ["127.0.0.1", "127.0.1.1"]
+ALLOWED_HOSTS += ["127.0.0.1", "127.0.1.1"]
 
 # logs are above BASE_DIR for ease of access when their needed, 
 # to avoid cd'ing to the project dir
-LOGFILE_ROOT = os.path.join(BASE_DIR.parent, "logs")
+LOGFILE_ROOT = Path(SITE_ROOT, "ProjectPM/logs")
 
 # Reset logging
 # (see http://www.caktusgroup.com/blog/2015/01/27/Django-Logging-Configuration-logging_config-default-settings-logger/)
@@ -69,13 +69,13 @@ LOGGING = {
         "django_log_file": {
             "level": "DEBUG",
             "class": "logging.FileHandler",
-            "filename": os.path.join(LOGFILE_ROOT, "django.log"),
+            "filename": Path(LOGFILE_ROOT, "django.log"),
             "formatter": "verbose",
         },
         "proj_log_file": {
             "level": "DEBUG",
             "class": "logging.FileHandler",
-            "filename": os.path.join(LOGFILE_ROOT, "project.log"),
+            "filename": Path(LOGFILE_ROOT, "project.log"),
             "formatter": "verbose",
         },
         "console": {
