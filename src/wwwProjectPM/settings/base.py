@@ -42,7 +42,7 @@ if env_file.exists():
 # Do not let these changes hit github, usually. TODO: add these env var's.
 # TESTING ON WIN MACHINE then use the following:
 BASE_DIR = Path("C:/Users/alber/Documents/GitHub/ProjectPM/src/")
-SITE_ROOT = BASE_DIR
+SITE_ROOT = Path("/var/www/")
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
@@ -57,7 +57,7 @@ STATICFILES_DIRS = [
     # insert more static file directories here
 ]
 
-STATIC_ROOT = Path(BASE_DIR, "static")
+STATIC_ROOT = Path(SITE_ROOT, "static")
 STATIC_URL = "/static/"
 MEDIA_ROOT = Path(SITE_ROOT, "media")
 MEDIA_URL = "/media/"
