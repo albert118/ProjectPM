@@ -80,3 +80,4 @@ venv.bak/
 *.env
 *.h
 *.tcl
+webproj/pip-selfcheck.json
