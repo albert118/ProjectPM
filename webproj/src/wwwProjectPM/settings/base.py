@@ -15,6 +15,7 @@ See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 from django.urls import reverse_lazy
 from pathlib import Path
 import environ
+import os
 
 ################################################################################
 # Use Twelve-Factor system. Read more: https://12factor.net/
@@ -145,10 +146,9 @@ WSGI_APPLICATION = "wwwProjectPM.wsgi.application"
 ################################################################################
 
 DATABASES = {
+    # MySQL database config
     'default': env.db(),
     'extra': env.db('DATABASE_URL')
-    # no default assigned. This will throw an error if it
-    # can't read/access the database!
 }
 
 # Internationalization
