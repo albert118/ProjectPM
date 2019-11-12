@@ -58,7 +58,10 @@ docs/_build/
 celerybeat-schedule
 
 # Environments
-webproj/
+webproj/Include
+webproj/Lib
+webproj/Scripts
+webproj/tcl
 *.env
 .env
 .venv
@@ -75,3 +78,5 @@ venv.bak/
 .mypy_cache/
 *.png
 *.env
+*.h
+*.tcl
