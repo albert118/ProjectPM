@@ -20,6 +20,7 @@ For the latest dependency list, see [here](https://github.com/albert118/ProjectP
 The primary dependencies for the project are Python 3.6.xx and MySQL server 5.7.xx, above all other dependencies - these must be met.
 
 ## Further Reading:
-[Python](https://www.python.org/)
-[Django](https://www.djangoproject.com/)
-[Apache 2](https://httpd.apache.org/docs/2.4/)
+
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+- [Apache 2](https://httpd.apache.org/docs/2.4/)
