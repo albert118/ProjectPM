@@ -53,12 +53,11 @@ body>.navbar-transparent {
     font-weight: bold;
 }
 
-/* This pretty much does nothing. */
 .navbar-brand > img {
     float: left;
     margin-right: 10px;
-    height: 20%;
-    width: 20%;
+    height: 200%;
+    width: 5%;
 }
 
 .btn {
@@ -72,7 +71,7 @@ body>.navbar-transparent {
 .corporate-jumbo {
     /* home page background image at top of page */
     background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)),
-    url("/static/site/img/FOM test logo.png");
+    url("/static/site/img/FOM_test_logo.png");
     background-repeat: no-repeat;
     background-position: 80% center;
     background-attachment: fixed;

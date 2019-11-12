@@ -58,6 +58,7 @@ docs/_build/
 celerybeat-schedule
 
 # Environments
+webproj/
 *.env
 .env
 .venv

@@ -37,11 +37,12 @@ if env_file.exists():
 ################################################################################
 
 # BASE_DIR = Path(__file__).resolve().parent.parent.parent
-BASE_DIR = Path("C:/Users/alber/Documents/GitHub/ProjectPM/src/")
-SITE_ROOT = Path("/var/www/")
+BASE_DIR = Path("C:/Users/alber/Documents/GitHub/ProjectPM/webproj/src/")
+SITE_ROOT = Path("/var/www")
 
 ################################################################################
 # Static & media file configuration (CSS, JavaScript, Images).
+# STATICFILES_DIRS takes precedence over STATIC_ROOT!
 # add non-app-specific STATICFILES_DIRS here.
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 ################################################################################
