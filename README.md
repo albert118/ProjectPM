@@ -2,7 +2,7 @@
 
 **A Django project for Project PM's website & online-beta application development. This is the precursor to the iOS & Android app projects**
 
-Based on Django 1.8 project structure.
+Based on Django 1.8 project structure. Use [this](https://github.com/albert118/django-skeleton) skeleton project for a basic starter kit to build tests or other sites off of.
 
 ## Current features:
 * Logging/Debugging custom implemented.
