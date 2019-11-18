@@ -5,95 +5,76 @@
 
 {% block title %}{{ block.super }}About{% endblock %}
 
-{% block navbar-left %}
-	{% include "_navbar.html" with active_link="about" %}
-{% endblock %}
-
-<!-- Benefits of the Django application -->
 {% block container %}
-
-<div id="sec1" class="text-page">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<h1>{% include "_brandname.html" %}</h1>
-				<p class="lead">Devise makes it easier to connect to jobs that matter to you and your skill set</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="sec2" class="text-page">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<h2>Meet The Team</h2>
-				<p class="lead">These are the people behind the project!</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4">
-				<div class="text-center"><img class="img-circle centered" src="{% static '/site/img/Jason.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
-				<p class="heavy text-center">Jason Zhang, Core Member</p>
-				<h2>Social Media & Marketing</h2>
-				<p>Snap happy ching chong. Applicant Relations Liason. #Instafamous</p>
-			</div>
-			<div class="col-lg-4">
-				<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/Nick.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
-				<p class="heavy text-center">Nick Foo, Core Member</p>
-				<h2>Business Management</h2>
-				<p>Should wear suits for this more often. Business Relations Liason & Coop  Management with Brendan</p>
-			</div>
-			<div class="col-lg-4">
-				<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/Albert.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
-				<p class="heavy text-center">Albert Ferguson, Core Member</p>
-				<h2>Technical Officer</h2>
-				<p>Way too much shit todo & way to much to write here... Everything from backend database & server to making this page. </p>
-			</div>
-			<div class="col-lg-4">
-				<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/Brendan.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
-				<p class="heavy text-center">Brendan Hor, Core Member</p>
-				<h2>Business Management</h2>
-				<p>Way too much paperwork. Financial Management & Coop Management with Nick Foo. </p>
-			</div>
-			<div class="col-lg-4">
-				<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
-				<p class="heavy text-center">Needed!</p>
-				<h2>Graphics Designer</h2>
-				<p>Logo and Business art design.</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="sec3">
-	<div class="container">
-		<div class="row">
-			<div id="map-outer" class="col-md-12">
-				<div id="address" class="col-md-4">
-					<h2>Our Location</h2>
-					<address>
-						<strong>Devise Solutions Ltd.</strong><br>
-						Somewhere<br>
-						We<br>
-						Can't afford<br>
-						at all - Australia, Sydney<br>
-						<abbr>P:</abbr> You think we have a phone yet? LMAO
-					</address>
+	<div id="sec2" class="text-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>Meet Devise Solutions</h2>
+					<p class="lead">These are the people behind the project!</p>
 				</div>
-				<div id="map-container" class="col-md-8"></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="text-center"><img class="img-circle centered" src="{% static '/site/img/Jason.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
+					<p class="heavy text-center">Jason Zhang <br> Co-Founder</p>
+					<h2>Social Media and Marketing</h2>
+					<p>Jason is our driven social media and applicant relations manager. He brings with him an intuitive skill for business systems.</p>
+				</div>
+				<div class="col-lg-4">
+					<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/Nick.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
+					<p class="heavy text-center">Nick Foo <br> Co-Founder</p>
+					<h2>Business Management and Operations</h2>
+					<p>Nick Foo is our level-headed business relations manager. Nick is responsible for managing our business relations with the cool, calm, collectedness of the Antarctic Shelf - nothing shatters this man's confidence.</p>
+				</div>
+				<div class="col-lg-4">
+					<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/Albert.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
+					<p class="heavy text-center">Albert Ferguson <br> Co-Founder </p>
+					<h2>Lead Software Engineer and Analyst</h2>
+					<p>Leading the charge into developing all the tech' required for this project, Albert is focussed and driven. Albert is reponsible for managing and developing mission critical software and processes. </p>
+				</div>
+				<div class="col-lg-4">
+					<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/Brendan.png' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
+					<p class="heavy text-center">Brendan Hor <br> Co-Founder</p>
+					<h2>Business Analysts and Growth</h2>
+					<p>Brendan is our business model developer and inspires growth of the company at every step. His key focuss is on constantly improving our process. </p>
+				</div>
+				<div class="col-lg-4">
+					<div class="text-center"><img class="img-circle centered" src="{% static 'site/img/' %}" alt="profile pic" style="max-height:220px;width:220px;"></div>
+					<p class="heavy text-center">HIRING (kind of) Needed!</p>
+					<h2>Graphics Designer and Lead Marketer</h2>
+					<p>Logo and Business art design. We'll hire you, in the sense that you'll do work though - not that you'd get paid or anything...</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
+	<div id="sec3">
+		<div class="container">
+			<div class="row">
+				<div id="map-outer" class="col-md-12">
+					<div id="address" class="col-md-4">
+						<h2>Our Location</h2>
+						<address>
+							<strong>Devise Solutions Ltd.</strong><br>
+							Somewhere we can't afford<br>
+							- Australia, Sydney<br>
+							<abbr>P:</abbr> 0420698989
+						</address>
+					</div>
+					<div id="map-container" class="col-md-8"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock container %}
 
 {% block scripts %}
-	<!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script>
 	 function init_map() {
-		 // Enter the latitude and longitude of your office here
-	 var myLocation = new google.maps.LatLng(27.176141, 78.042370);
+	 // Enter the latitude and longitude of your office here
+	 var myLocation = new google.maps.LatLng(-33.8692265, 151.2045018);
 		 var mapOptions = {
 					center: myLocation,
 					zoom: 14
@@ -106,5 +87,5 @@
 	 marker.setMap(map);
 	 }
 	 google.maps.event.addDomListener(window, 'load', init_map);
-	</script> -->
+	</script>
 {% endblock scripts %}

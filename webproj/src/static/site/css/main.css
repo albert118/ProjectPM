@@ -17,7 +17,7 @@ html, body{
   box-shadow: 0 0 40px 0 rgba(19,25,30,.1);
 }
 
-.header, .wrapper {
+.header .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
