@@ -5,18 +5,10 @@
 
 {% block title %}{{ block.super }}Home{% endblock %}
 
-{% block navbar-left %}
-  {% include "_navbar.html" with active_link="home" %}
-{% endblock %}
-
-{% block navbar-right %}
-  {% if not user.is_authenticated %}
-<a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
-<a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up</a>
-  {% else %}
-    {{ block.super }}
-  {% endif %}
-{% endblock %}
+{% block styles %}
+<link href="{% static 'site/css/main.css' %}" type="text/css" rel="stylesheet">
+<link href="{% static 'site/css/home.css' %}" type="text/css" rel="stylesheet">
+{% endblock styles %}
 
 {% block splash %}
   <div class="jumbotron jumbotron-carousel corporate-jumbo">
@@ -24,41 +16,42 @@
       <div class="row">
         <div class="col-md-8 col-sm-8">
           <h1>{% include "_brandname.html" %}</h1>
-          <p>Devise makes it easier to connect to jobs that matter to you and your skill set</p>
 	  <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign Up</a>
-        </div>
-        <div class="col-md-4 col-sm-4">
         </div>
       </div>
     </div>
   </div>
+
 {% endblock splash %}
 
-{% block container %}
-<!-- Benefits of the Django application -->
-<a id="about"></a>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-      <h2>About</h2>
-      <p>Read about the members behind the project, get contact information and find out more about this project!</p>
-      <p><a class="btn btn-primary" href="/about" role="button">Read more &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-      <h2>FAQ</h2>
-      <p>Checkout some frequently asked questions about the project and site. </p>
-      <p><a class="btn btn-primary" href="#" role="button">Answers here &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-      <h2>TO BE ANNOUNCED</h2>
-      <p>Next stage of the project, stay tuned...</p>
-      <p><a class="btn btn-primary" href="#" role="button">What's this? &raquo;</a></p>
+{% block container %}
+  <div class="info-block">
+    <div class="wrapper">
+      <div class="info-header">
+        <h2 class="info-title">Devise makes it easier to connect to jobs that matter to you and your skill set:</h2>
+      </div>
+      <div class="info-navs">
+        <a style="transition-delay: 0.6s;" class="info-item" title="About" href="/about" >
+          <div class="info-svg" alt="about"><!-- add image svg for about here --></div> 
+          <h2>Read more</h2>
+          <div class="info-content"><p>Find out about the team behind the project and what drives us</p></div>
+        </a>
+        <a class="info-item" title="FAQs" href="#" style="transition-delay: 0.6s;">
+          <div class="info-svg" alt="faqs"><!-- add image svg for about here --></div> 
+          <h2>Common Questions</h2>
+          <div class="info-content"><p>Got questions? See here for the common ones</p></div>
+        </a>
+        <a class="info-item" title="Coming soon" href="#" style="transition-delay: 0.6s;">
+          <div class="info-svg" alt="coming soon"><!-- add image svg for about here --></div> 
+          <h2>See the preview what's next</h2>
+          <div class="info-content"><p>What could it be?</p></div>
+        </a>
+      </div>
     </div>
   </div>
-</div>
+{% endblock %}
 
-{% endblock container %}
 
 {% block scripts %}
 <script src="{% static 'site/js/site.js' %}"></script>

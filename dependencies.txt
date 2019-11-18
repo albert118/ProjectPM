@@ -1,0 +1,9 @@
+django
+django-crispy-forms
+easy-thumbnails
+django-environ
+django-authtools
+django-debug-toolbar
+django-braces
+matplotlib
+mysqlclient

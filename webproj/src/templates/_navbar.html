@@ -1,2 +1,8 @@
-<li {% if active_link == "home" %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
-<li {% if active_link == "about" %}class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
+
+
+<div class="nav-links">  
+  <a class="header-nav-link" href="{% url 'home' %}">Home</a>
+  <a class="header-nav-link" href="{% url 'about' %}">About</a>
+  <a class="header-nav-link btn-default header-nav-link.button" href="{% url 'accounts:login' %}">Log in</a>
+  <a class="header-nav-link btn header-nav-link.button" href="{% url 'accounts:signup' %}">Sign up</a>
+</div>

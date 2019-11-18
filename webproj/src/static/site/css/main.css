@@ -1,13 +1,143 @@
 @import "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
 
 html, body{
-    height:100%;    /* For full height images */
+    height:100%;
+    /* For full height images */
 }
 
-.starter-template {
-  padding: 40px 15px;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  padding: 0 20px;
+  opacity: 1;
+  background-color: #2c3242;
+  box-shadow: 0 0 40px 0 rgba(19,25,30,.1);
+}
+
+.header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-right {
+  width: 100%;
+  justify-content: flex-end!important;
+}
+
+.header-left,.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  width: 100%;
+  /* make sure nav links scale fully always */
+}
+
+.header-right .btn {
+  padding: 8px 25px!important;
+  font-size: 15px!important;
+}
+
+.header-nav-link.button {
+    display: inline-flex!important;
+    margin: 0 0 0 15px;
+}
+
+.header-right .btn, .header-left .btn { 
+  margin: 0 20px;
+  /*margin for header buttons to align with link text */
+}
+
+.header-nav-link {
+    margin: 0 15px;
+    color: #fff;
+}
+
+.btn {
+  align-items: center;
+  border: 1px solid black;
+  background: #e1c04a;
+  background-size: 250% 100%;
+  background-position: 100%;
+  border-radius: 6px;
+  padding: 10px 25px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4em;
+  color: #fff;
   text-align: center;
 }
+
+.btn-default {
+  align-items: center;
+  border: 1px solid black;
+  background: #fff;
+  background-size: 250% 100%;
+  background-position: 100%;
+  border-radius: 6px;
+  padding: 10px 25px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4em;
+  color: black;
+  text-align: center;
+}
+
+.header .header-brand-text {
+  position: relative;
+  height: 60px;
+  font-weight: bold;
+  width: 140px;
+  color: #fff;
+}
+
+.header-brand-text > img {
+  float: left;
+  margin-right: 10px;
+  width: 25%;
+}
+
+/*body > .header-transparent {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.header-transparent .nav > .active > a {
+    background-color: transparent;
+}
+
+.navbar-form {
+    margin-right: 0;
+}
+
+.header-nav > li > a.profile-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-right > .btn {
+    margin-top:10px;
+    margin-right: 1.7em;
+}
+
+.header-nav > li > a {
+    font-size: 16px;
+}*/
 
 .footer {
   padding-top: 40px;
@@ -21,58 +151,11 @@ html, body{
     margin-bottom: 0;
 }
 
-body>.navbar-transparent {
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
-}
-
-.navbar-transparent .navbar-nav > .active > a {
-    background-color: transparent;
-}
-
-.navbar-form {
-    margin-right: 0;
-}
-
-.navbar-nav>li>a.profile-menu {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.navbar-nav>.btn{
-    margin-top:10px;
-    margin-right: 1.7em;
-}
-
-.navbar-nav > li > a {
-    font-size: 16px;
-}
-
-.navbar-brand {
-    font-weight: bold;
-}
-
-/* This pretty much does nothing. */
-.navbar-brand > img {
-    float: left;
-    margin-right: 10px;
-    height: 20%;
-    width: 20%;
-}
-
-.btn {
-    background-image: none;
-    -webkit-box-shadow: 0px 1px 0px #ddd;
-    -moz-box-shadow: 0px 1px 0px #ddd;
-    box-shadow: 0px 1px 0px #ddd;
-}
-
-/* Home page styling */
+/* Big Image styling */
 .corporate-jumbo {
     /* home page background image at top of page */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)),
-    url("/static/site/img/FOM test logo.png");
+    background-image: /*linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)),*/
+    url("/static/site/img/devise_logo_main_.jpeg");
     background-repeat: no-repeat;
     background-position: 80% center;
     background-attachment: fixed;
@@ -108,6 +191,8 @@ body>.navbar-transparent {
     left: 15px;
 }
 
+
+/* contact and social banner styling */
 .contact-banner {
     padding: 100px 0;
     background: #e0e0e0;
@@ -118,6 +203,7 @@ body>.navbar-transparent {
     text-decoration: none;
 }
 
+/* drop down styling for login dropdown menu */
 .dropdown {
   position: relative;
   display: inline-block;
