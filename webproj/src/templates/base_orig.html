@@ -10,12 +10,12 @@
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="author" content="Albert Ferguson">
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
     {% load static %}
-    <link rel="shortcut icon" href="{% static 'site/img/devise_logo_main_.jpeg' %}">
+    <link rel="shortcut icon" href="{% static 'site/img/D_symbol_link.png' %}">
 
     <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
 
@@ -30,37 +30,55 @@
 
   <body>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
     {% block navbar %}
-    
-    <header class="header">
-      <div class="wrapper">
-        <div class="header-left">
-          <a aria-current="page" class="logo header-brand-text" href="{% url 'home' %}"> <!-- old navbar-brand class -->
-          {% block navbar-brand %}
-              <img src="{% static 'site/img/D_symbol_link.png' %}">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">
+            {% block navbar-brand %}
+             <img src="{% static 'site/img/D_symbol_link.png' %}">
               {% include "_brandname.html" %}
-          {% endblock %}
+            {% endblock %}
           </a>
-        </div> <!-- /header-left -->     
-        {% block navbar-menu %}
-        <div class="header-right">
-          <nav class="header-nav">
-            <div class="nav-links">  
-              <a class="header-nav-link" href="{% url 'home' %}">Home</a>
-              <a class="header-nav-link" href="{% url 'about' %}">About</a>
-              <a class="header-nav-link btn-default header-nav-link.button" href="{% url 'accounts:login' %}">Log in</a>
-              <a class="header-nav-link btn header-nav-link.button" href="{% url 'accounts:signup' %}">Sign up</a>
-              {% block navbar-right %}
-              {% endblock %} <!-- /.navbar-right -->
-            </div>
-          </div> <!--/.header-nav -->
         </div>
-        {% endblock %} <!-- /.navbar-menu -->
-      </div> <!-- /wrapper -->
-    </header> <!-- /header-->
-    
+        {% block navbar-menu %}
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% block navbar-left %}{% endblock %}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% block navbar-right %}
+              {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                {% endif %}
+                <div class="dropdown">
+                  <div>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="{% thumbnail user.profile.picture|default:'default_profile.png' 30x30 crop %}" alt="" />
+                    {{ user.get_full_name|truncatechars:20 }}
+                    <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="{% url 'profiles:show_self' %}">Profile</a></li>
+                      <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                    </ul>
+                  </div>
+                </div>
+              {% endif %}
+            {% endblock %}
+          </ul>
+        </div><!--/.nav-collapse -->
+        {% endblock %}
+    </div>
     {% endblock navbar %}
 
     {% block messages %}
@@ -76,7 +94,7 @@
 
     {% block splash %}
     {% endblock splash %}
-    
+
     <!-- Site footer -->
     {% block footer %}
       <!-- Some social button for contact will do -->
@@ -106,7 +124,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     {% block scripts %}
     {% endblock scripts %}
   </body>

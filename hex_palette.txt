@@ -1,0 +1,5 @@
+main, dark navy : #2c3242
+highlight, white : #fff
+detail/button, : gold/bronze : #e1c04a
+alt. detail : #cd7f32
+alt. edging : black
